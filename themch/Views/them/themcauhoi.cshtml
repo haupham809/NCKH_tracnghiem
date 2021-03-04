@@ -1,0 +1,345 @@
+﻿@{
+Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <style>
+        .luuhuy {
+            text-align-last: right;
+        }
+
+        .bangcauhoi, .bangvanbang, .bangword {
+            border-radius: 12px;
+            background-color: aquamarine;
+            font-size: 16px;
+            margin: 5px;
+            padding: 10px 25px;
+        }
+
+        .luuvanbang, .luucauhoi, .luuword {
+            background: blue;
+            border: 0px;
+            font-size: 16px;
+            border-radius: 12px;
+            padding: 15px 32px;
+            margin: 10px;
+            margin: 10px;
+        }
+
+        .huyvanbang, .huycauhoi, .huyword {
+            border: 0px;
+            font-size: 16px;
+            border-radius: 12px;
+            padding: 15px 32px;
+            margin: 10px;
+        }
+
+
+
+        .popupcauhoi {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 99;
+            background-color: rgba(0,0,0,.5);
+        }
+
+        .theocauhoi {
+            background-color: aliceblue;
+            position: fixed;
+            width: 500px;
+            width: 500px;
+            margin-left: 30%;
+            padding: 15px 32px;
+            z-index: 99;
+            margin-top: 5%;
+            overflow-y: scroll;
+            height: 500px;
+            border-radius: 12px;
+        }
+
+        .popupvanbang {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 99;
+            background-color: rgba(0,0,0,.5);
+        }
+
+        .theovanbang {
+            background-color: aliceblue;
+            position: fixed;
+            width: 500px;
+            width: 500px;
+            margin: 30%;
+            padding: 15px 32px;
+            z-index: 99;
+            margin-top: 5%;
+            overflow-y: scroll;
+            height: 500px;
+            border-radius: 12px;
+        }
+
+        .theoword {
+            background-color: aliceblue;
+            position: fixed;
+            width: 90%;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 15px 32px;
+            z-index: 99;
+            overflow-y: scroll;
+            height: 90%;
+            border-radius: 12px;
+        }
+
+        .popupword {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 99;
+            background-color: rgba(0,0,0,.5);
+        }
+
+        .cauhoi {
+            border: 1px solid blue;
+            height: 500px;
+            background-color: white;
+        }
+
+        .da1, .da2, .da3, .da4 {
+            border: 1px solid black;
+            border-radius: :12px;
+            background-color: white;
+        }
+
+        .vanbang {
+            width: 100%;
+            height: 500px;
+            border: 1px solid blue;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="custom-select" style="width:200px;">
+            <b>Môn học:  </b> <select>
+                <option value="0">Select car:</option>
+                <option value="1">Audi</option>
+                <option value="2">BMW</option>
+                <option value="3">Citroen</option>
+                <option value="4">Ford</option>
+                <option value="5">Honda</option>
+                <option value="6">Jaguar</option>
+                <option value="7">Land Rover</option>
+                <option value="8">Mercedes</option>
+                <option value="9">Mini</option>
+                <option value="10">Nissan</option>
+                <option value="11">Toyota</option>
+                <option value="12">Volvo</option>
+            </select>
+
+        </div>
+        <div>
+            <div>
+                <h3> Danh sách câu hỏi</h3>
+                <div></div>
+            </div>
+            <div class="">
+                <div>
+                    <button type="button" class="bangcauhoi">Soạn câu hỏi</button>
+                    <button type="button" class="bangvanbang"> Thêm bằng văn bản</button>
+                    <button type="button" class="bangword"> Thêm bằng word</button>
+
+                </div>
+
+                <div class="text-center">Chưa có câu hỏi nào !</div>
+            </div>
+        </div>
+    </div>
+    <div class="popupcauhoi">
+        <div class="theocauhoi">
+            <div>
+                <b>chương : </b>
+
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div>
+                <b>mức độ: </b>
+                <select>
+                    <option>khó</option>
+                    <option>dễ</option>
+                    <option>trung bình</option>
+                </select>
+
+            </div>
+
+            <div>
+                <b>cau hoi :</b><br>
+                <div class="cauhoi" lang="vi" dir="ltr" role="textbox" aria-label="Trình soạn thảo văn bản, main" contenteditable="true"><p data-placeholder="Nhập câu hỏi" class="ck-placeholder"><br data-cke-filler="true"></p></div>
+            <input type="file" accept=".doc,.docx" name="fileword" id ="fileword" multiple/>
+
+            </div>
+            <div>
+                @{var listItems = new List<SelectListItem>
+            {
+          new SelectListItem { Text = "1", Value="1" },
+          new SelectListItem { Text = "2", Value="2" },
+          new SelectListItem { Text = "3", Value="3" }
+    };
+                }
+                @Html.DropDownList("Exemplo", new SelectList(listItems, "Value", "Text"))
+                @{
+                    for (int i = 1; i <=2 ; i++)
+                    {
+
+                        <b>1:</b><br>
+
+                        <input class="da" type="radio" value="0" name="1">
+                        <div class="da1" lang="vi" dir="ltr" role="textbox" aria-label="Trình soạn thảo văn bản, main" contenteditable="true"><p data-placeholder="Đáp án B" class="ck-placeholder"><br data-cke-filler="true"></p></div>
+                        @*<b>Đáp án 2 :</b><br>
+
+                <input class="da" type="radio" value="0" name="1">
+                <div class="da2" lang="vi" dir="ltr" role="textbox" aria-label="Trình soạn thảo văn bản, main" contenteditable="true"><p data-placeholder="Đáp án B" class="ck-placeholder"><br data-cke-filler="true"></p></div>
+                <b>Đáp án 3 :</b><br>
+
+                <input class="da" type="radio" value="0" name="1">
+                <div class="da3" lang="vi" dir="ltr" role="textbox" aria-label="Trình soạn thảo văn bản, main" contenteditable="true"><p data-placeholder="Đáp án B" class="ck-placeholder"><br data-cke-filler="true"></p></div>
+                <b>Đáp án 4 :</b><br>
+
+                <input class="da" type="radio" value="0" name="1">
+                <div class="da4" lang="vi" dir="ltr" role="textbox" aria-label="Trình soạn thảo văn bản, main" contenteditable="true"><p data-placeholder="Đáp án B" class="ck-placeholder"><br data-cke-filler="true"></p></div>*@
+
+                    }
+                }
+            </div>
+            <div class="luuhuy">
+                <button class="luucauhoi">Lưu</button>
+                <button class="huycauhoi">Hủy</button>
+            </div>
+
+        </div>
+        </div>
+        <div class="popupvanbang">
+            <div class="theovanbang">
+                <div>
+                    <b>Thêm câu hỏi bằng văn bản </b> <br />
+                    <b>Nội dung câu hỏi * </b>
+
+                </div>
+                <div>
+
+                    <button class="xemvidu"> xem vi dụ</button>
+                </div>
+
+                <div>
+                    <b>cau hoi :</b><br>
+                    <textarea name="content" class="vanbang" placeholder="Soạn câu hỏi ở đây" required="" rows="20"></textarea>
+                </div>
+
+                <div class="luuhuy">
+                    <button class="luuvanbang">Lưu</button>
+                    <button class="huyvanbang">Hủy</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="popupword">
+
+                <div class="theoword">
+                    <div>
+                        <b>Thêm câu hỏi bằng word </b> <br />
+                        <button class="xemvidu" name="fileword"> xem vi dụ</button> <br />
+                        <b>tải file word * </b>
+                        <br />
+                        
+
+
+                        @using (Ajax.BeginForm("docfileword", "them", FormMethod.Post  , new AjaxOptions { InsertionMode = InsertionMode.Replace,UpdateTargetId = "dataword",HttpMethod="POST" }
+                        ,new {enctype ="multipart/form-data"} ))
+                        {
+                    <input type="file" accept=".doc,.docx" name="file" id="txtFile" multiple/>
+                            <button>tải lên</button>
+                            <b id="dataword1" >cau hoi :</b><br>
+                            
+                            <div id="dataword"></div>
+                        }
+                    </div>
+
+                    <div class="luuhuy">
+                        <button class="luuword">Lưu</button>
+                        <button class="huyword">Hủy</button>
+                    </div>
+
+            </div>
+
+        </div>
+        <script type="text/javascript">
+
+            $(".bangcauhoi").click(function () {
+                $(".popupcauhoi").css("display", "block");
+            });
+            $(".bangvanbang").click(function () {
+                $(".popupvanbang").css("display", "block");
+            });
+
+            $(".bangword").click(function () {
+                $(".popupword").css("display", "block");
+            });
+
+            $(".xemvidu").click(function () {
+            $(".vanbang").text(" $chuong$\n Khái niệm dữ liệu là? \n"+"$*$ Dữ liệu là đối tượng mang thông tin. \n"+
+            "$$ Dữ liệu là các tín hiệu vật lý và các số liệu. \n"+"$$ Dữ liệu là các kí hiệu, các hình ảnh. \n"+
+            "$chuong$ \n Dữ liệu trong máy tính có thể là ? \n" + "$$ Là các số liệu hoặc tài liệu cho trước chưa được xử lý. \n" +
+            "$$ Là các tín hiệu vật lý như sóng điện từ, ánh sáng, âm thanh. \n" +
+            "$$ Là các hình ảnh. \n"+"$*$ Tất cả các đáp án đều đúng. \n"
+            );
+            });
+
+            $(".huyvanbang").click(function () {
+                $(".popupvanbang").css("display", "none");
+            });
+            $(".huycauhoi").click(function () {
+                $(".popupcauhoi").css("display", "none");
+            });
+            $(".huyword").click(function () {
+                $(".popupword").css("display", "none");
+            });
+
+          
+        </script>
+</body>
+
+
+</html>
